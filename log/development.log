@@ -3241,3 +3241,434 @@ Processing by PostsController#index as HTML
   [1m[36mAuthor Load (0.1ms)[0m  [1mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT 1[0m  [["id", 3]]
   Rendered posts/index.html.erb within layouts/application (33.3ms)
 Completed 200 OK in 260ms (Views: 253.3ms | ActiveRecord: 1.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdminUsers (20170430105443)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170430105443"]]
+  [1m[36m (534.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateActiveAdminComments (20170430105453)
+  [1m[35m (1.4ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar, "body" text, "resource_id" integer, "resource_type" varchar, "author_id" integer, "author_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170430105453"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_resource_type_and_resource_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/admin" for 69.245.10.143 at 2017-04-30 10:56:12 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 34ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 69.245.10.143 at 2017-04-30 10:56:13 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/shared/_links.erb (8.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (204.0ms)
+Completed 200 OK in 23705ms (Views: 23615.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/login" for 69.245.10.143 at 2017-04-30 10:56:57 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/shared/_links.erb (85.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (401.7ms)
+Completed 200 OK in 1015ms (Views: 933.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 69.245.10.143 at 2017-04-30 10:57:07 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nWzj1ELAfAw1awqPf3/NTrP2HUhk1/jA8zthR0cNglAB/s+uchWxP/aevXuTp5Tl2IaGiSFN1kobeqRTcz0oIw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mAdminUser Load (3.1ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Completed 401 Unauthorized in 122ms (ActiveRecord: 3.1ms)
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nWzj1ELAfAw1awqPf3/NTrP2HUhk1/jA8zthR0cNglAB/s+uchWxP/aevXuTp5Tl2IaGiSFN1kobeqRTcz0oIw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/shared/_links.erb (9.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (199.6ms)
+Completed 200 OK in 1182ms (Views: 889.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 69.245.10.143 at 2017-04-30 10:58:51 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wEYtQb8hoWwFJw2RfCvLltTXbNQvBXtRS2uqURuzIfZc1AE7j/RsX8bSumWQ85I9v6f3FWqfVdujKm9FL4OLhQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (3.8ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["email", "admin@example.com"]]
+Completed 401 Unauthorized in 124ms (ActiveRecord: 3.8ms)
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wEYtQb8hoWwFJw2RfCvLltTXbNQvBXtRS2uqURuzIfZc1AE7j/RsX8bSumWQ85I9v6f3FWqfVdujKm9FL4OLhQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/shared/_links.erb (128.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (488.0ms)
+Completed 200 OK in 1328ms (Views: 1108.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mPost Load (52.6ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 1]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.7ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 2]]
+  [1m[35m (14.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 3]]
+  [1m[36m (4.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mAuthor Load (0.6ms)[0m  SELECT "authors".* FROM "authors"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "authors" WHERE "authors"."id" = ?  [["id", 1]]
+  [1m[36m (15.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (2.3ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "authors" WHERE "authors"."id" = ?[0m  [["id", 2]]
+  [1m[35m (6.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "authors" WHERE "authors"."id" = ?  [["id", 3]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "authors" ("name", "genre", "bio", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Stephen King"], ["genre", "Romance"], ["bio", "Writes a lot of scary things."], ["created_at", "2017-04-30 10:59:58.446888"], ["updated_at", "2017-04-30 10:59:58.446888"]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "authors" ("name", "genre", "bio", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Ariana Huffington"], ["genre", "Comedy"], ["bio", "Up and comer. One to watch."], ["created_at", "2017-04-30 10:59:58.454156"], ["updated_at", "2017-04-30 10:59:58.454156"]]
+  [1m[36m (11.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authors" ("name", "genre", "bio", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Horse Ebooks"], ["genre", "?????"], ["bio", "Eclectic."], ["created_at", "2017-04-30 10:59:58.472514"], ["updated_at", "2017-04-30 10:59:58.472514"]]
+  [1m[35m (7.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "posts" ("title", "description", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Something About Democrats"], ["description", "  Last night I dreamt there is more to life than to bully friends.\n  What has that got to do with Democrats, you probably wonder...\n  The answer is here. Right here. Back in school my hair was silly.\n  Nevermind about the details, but... In a nut-shell: And still,\n  it was strange. Using Google, I found a 12-sided dice.\n  Which would be nothing special but...\n"], ["author_id", 4], ["created_at", "2017-04-30 10:59:58.507832"], ["updated_at", "2017-04-30 10:59:58.507832"]]
+  [1m[36m (5.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "description", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Spam Spam Spam"], ["description", "  It occurred to me that no matter what cards you are dealt,\n  you need to enjoy the small joys. How is this related to Spam, you ask.\n  Fair enough. OK, I will tell you something here now...\n  Sometime around last year I loved movies. Yeah, just what it sounds like.\n  In a nut-shell: And still, it was strange. I collided with the powers of a my computer,\n  broken and gray. And here's why this matters...\n"], ["author_id", 5], ["created_at", "2017-04-30 10:59:58.521220"], ["updated_at", "2017-04-30 10:59:58.521220"]]
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "description", "author_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Links! Click Links!"], ["description", "  Last night I dreamt we simply need to realize to be so competitive.\n  Does the responsibility lie with Links, you probably wonder...\n  The answer is here. Right here. About the time I broke up with my\n  ex I was totally into music. Whatever. So that's that.\n  But something wasn't right. I stumbled upon a giant banana.\n"], ["author_id", 6], ["created_at", "2017-04-30 10:59:58.528775"], ["updated_at", "2017-04-30 10:59:58.528775"]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "posts" SET "created_at" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["created_at", "2017-04-29 00:00:00.000000"], ["updated_at", "2017-04-30 10:59:58.542434"], ["id", 6]]
+  [1m[35m (3.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mAdminUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$10$dl805ac5mOHeMTEZeWl6K.tPFhD94sEGuF7ZA3ZZJwT3WKJUwWw.C"], ["created_at", "2017-04-30 10:59:58.836388"], ["updated_at", "2017-04-30 10:59:58.836388"]]
+  [1m[35m (52.7ms)[0m  commit transaction
+
+
+Started GET "/admin" for 69.245.10.143 at 2017-04-30 11:00:15 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 79ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 69.245.10.143 at 2017-04-30 11:00:15 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/shared/_links.erb (63.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (200.5ms)
+Completed 200 OK in 1461ms (Views: 1435.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/admin/login" for 69.245.10.143 at 2017-04-30 11:00:26 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"65a70okNwU+pcN+R3zgbYqEtBlGheFP0bLjJW8y+nAt3BJeoudgMfGqFaGUz4ELJyl2dkOTifX6E+QxP+I42eA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mAdminUser Load (1.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "admin_users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admin_users"."id" = ?  [["last_sign_in_at", "2017-04-30 11:00:27.400150"], ["current_sign_in_at", "2017-04-30 11:00:27.400150"], ["last_sign_in_ip", "69.245.10.143"], ["current_sign_in_ip", "69.245.10.143"], ["sign_in_count", 1], ["updated_at", "2017-04-30 11:00:27.412761"], ["id", 1]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://138.197.214.116:30043/admin
+Completed 302 Found in 488ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/admin" for 69.245.10.143 at 2017-04-30 11:00:27 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/page/index.html.arb (506.6ms)
+Completed 200 OK in 590ms (Views: 516.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/admin_users" for 69.245.10.143 at 2017-04-30 11:00:39 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (2.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (708.9ms)
+Completed 200 OK in 915ms (Views: 795.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 69.245.10.143 at 2017-04-30 11:00:40 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/active_admin/datepicker/datepicker-input-icon-d9c2bb73769af777c8a71720d29741f3a499aebd5a043e9a119bd0d9597aed47.png" for 69.245.10.143 at 2017-04-30 11:00:40 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/admin/admin_users/1/edit" for 69.245.10.143 at 2017-04-30 11:00:44 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AdminUsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/edit.html.arb (627.3ms)
+Completed 200 OK in 659ms (Views: 649.7ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/admin/admin_users/1" for 69.245.10.143 at 2017-04-30 11:01:04 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AdminUsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7ch8I5B+LdVL1mdVyGpkr00Kcx39KzlmXhQhsvgFL3qfMGwSpu6RULVHzegUH8dg9fKzRLyFY9LTBNSHm6ip+w==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update Admin user", "id"=>"1"}
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAdminUser Load (0.1ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "admin_users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "admin_users"."id" = ?[0m  [["encrypted_password", "$2a$10$CroTQsIvP0r/mWSZu8rTQ.135Uq3cZddIsO530/GHbOcEH/OO4/De"], ["updated_at", "2017-04-30 11:01:04.534085"], ["id", 1]]
+  [1m[35m (3.8ms)[0m  commit transaction
+Redirected to http://138.197.214.116:30043/admin/admin_users/1
+Completed 302 Found in 304ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/admin/admin_users/1" for 69.245.10.143 at 2017-04-30 11:01:04 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/login" for 69.245.10.143 at 2017-04-30 11:01:05 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/shared/_links.erb (5.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (173.3ms)
+Completed 200 OK in 576ms (Views: 573.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 69.245.10.143 at 2017-04-30 11:01:10 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8Fo0492oXlBVenySKDmhh4dDKBh2+hxRoE7oE89Uep+CoiTS6zji1avr1i/0TAJIP7voQTdURuUtXh0mrPn8Hg==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "admin_users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admin_users"."id" = ?  [["current_sign_in_at", "2017-04-30 11:01:11.022868"], ["sign_in_count", 2], ["updated_at", "2017-04-30 11:01:11.025699"], ["id", 1]]
+  [1m[36m (6.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://138.197.214.116:30043/admin/admin_users/1
+Completed 302 Found in 291ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/admin/admin_users/1" for 69.245.10.143 at 2017-04-30 11:01:11 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mAdminUser Load (0.1ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."namespace" = ? AND "active_admin_comments"."resource_id" = 1  [["resource_type", "AdminUser"], ["namespace", "admin"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = ? AND "active_admin_comments"."namespace" = ? AND "active_admin_comments"."resource_id" = 1[0m  [["resource_type", "AdminUser"], ["namespace", "admin"]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/show.html.arb (518.3ms)
+Completed 200 OK in 526ms (Views: 521.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/dashboard" for 69.245.10.143 at 2017-04-30 11:01:27 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.9ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/page/index.html.arb (685.7ms)
+Completed 200 OK in 725ms (Views: 691.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/" for 69.245.10.143 at 2017-04-30 11:03:28 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/page/index.html.arb (1287.6ms)
+Completed 200 OK in 1397ms (Views: 1297.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/authors" for 69.245.10.143 at 2017-04-30 11:03:34 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AuthorsController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "authors"
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAuthor Load (0.3ms)[0m  SELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (1003.7ms)
+Completed 200 OK in 1044ms (Views: 1019.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/authors" for 69.245.10.143 at 2017-04-30 11:21:53 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AuthorsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "authors"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (691.1ms)
+Completed 200 OK in 799ms (Views: 696.6ms | ActiveRecord: 60.6ms)
+
+
+Started GET "/admin/authors" for 69.245.10.143 at 2017-04-30 11:25:06 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AuthorsController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "authors"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAuthor Load (0.4ms)[0m  SELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" desc LIMIT 30 OFFSET 0
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (821.7ms)
+Completed 200 OK in 1006ms (Views: 833.4ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/admin/authors" for 69.245.10.143 at 2017-04-30 11:25:14 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AuthorsController#index as HTML
+  [1m[35mAdminUser Load (1.7ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "authors"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (723.2ms)
+Completed 200 OK in 732ms (Views: 724.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/dashboard" for 69.245.10.143 at 2017-04-30 11:25:17 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/page/index.html.arb (366.9ms)
+Completed 200 OK in 379ms (Views: 375.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/authors" for 69.245.10.143 at 2017-04-30 11:25:20 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::AuthorsController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "authors"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (334.7ms)
+Completed 200 OK in 344ms (Views: 339.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/authors" for 69.245.10.143 at 2017-04-30 11:27:48 +0000
+Cannot render console from 69.245.10.143! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::AuthorsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "authors"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "authors" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAuthor Load (0.3ms)[0m  [1mSELECT  "authors".* FROM "authors"  ORDER BY "authors"."id" desc LIMIT 30 OFFSET 0[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/bundler/gems/activeadmin-9cffa4a81134/app/views/active_admin/resource/index.html.arb (2234.1ms)
+Completed 200 OK in 2436ms (Views: 2303.2ms | ActiveRecord: 3.3ms)
